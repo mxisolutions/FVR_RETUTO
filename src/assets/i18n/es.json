@@ -1,0 +1,9 @@
+{
+    "title": "test espanyol",
+    "app": {
+        "title": "Componente de tutorial"
+    },
+    "general": {
+        "hello": "Hola Mundo"
+    }
+}

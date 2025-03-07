@@ -1,0 +1,9 @@
+{
+    "title": "test perancis",
+    "app": {
+        "title": "Composant de tutoriel"
+    },
+    "general": {
+        "hello": "Bonjour le monde"
+    }
+}

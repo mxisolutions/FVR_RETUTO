@@ -1,0 +1,32 @@
+<div class="page main-page">
+    <div class="content">
+        <div #allScreenView class="screen-panel">
+            <div class="screen-container" *ngFor="let panel of panels" [id]="('screen-' + panel).toLowerCase()">
+                <div class="btn-container">
+                    <!-- to be made into a component -->
+                     <div *ngFor="let btngrp of buttonGroup">
+                        <app-btn-group 
+                            [id]="panel + btngrp.id" 
+                            [screenId]="panel"
+                            [type]="btngrp.layout" 
+                            [buttons]="btngrp.buttons"
+                            (ButtonGroupReady)="setBtnGroupReady($event)">
+                        </app-btn-group>
+                     </div>
+                </div>
+            </div>
+        </div>
+
+        <app-tuto-walkthrough></app-tuto-walkthrough>
+        
+        <div class="nav-container">
+            <ul>
+                <li *ngFor="let panel of panels">
+                    {{ panel }}
+                </li>
+            </ul>
+        </div>
+        
+    </div>
+    
+</div>

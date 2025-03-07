@@ -1,0 +1,9 @@
+{
+    "title": "test",
+    "app": {
+        "title": "TutorComponent"
+    },
+    "general": {
+        "hello": "hello world"
+    }
+}

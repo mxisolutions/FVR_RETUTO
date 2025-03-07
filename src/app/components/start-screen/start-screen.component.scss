@@ -1,0 +1,10 @@
+.content .left {
+    width: 172px;
+    height: 100%;
+    display: block;
+}
+
+.content .right {
+    width: calc(100% - 172px);
+    overflow: clip;
+}
