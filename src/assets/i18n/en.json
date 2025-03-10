@@ -3,8 +3,8 @@
     "app": {
         "title": "TutorComponent",
         "button": {
-            "Forfeit":"Forfeit",
-            "Help":"Help",
+            "Forfeit":"Exit",
+            "Help":"Start Tutorial",
             "Prep":"Prep",
             "Location":"Location",
             "Chat":"Chat",

@@ -89,7 +89,6 @@ import { WalkthroughComponent } from 'angular-walkthrough';
             // screen screen id for each step
             if(!this.step2screen[step.id]){
               this.step2screen[step.id] = screen;
-              console.log("this.step2screen:",this.step2screen)
             }
           }
         });
@@ -124,9 +123,10 @@ import { WalkthroughComponent } from 'angular-walkthrough';
     return this.step2screen[id];
   }
 
+  // scrollToParentEl
   scrollIntoView(elementId:string){ 
     const parentEl = document.getElementById(elementId);
-    console.log("scrolling into view of parent ->", parentEl);
+    // console.log("scrolling into view of parent ->", );
     if(parentEl){
       parentEl.scrollIntoView({
         behavior: 'smooth',

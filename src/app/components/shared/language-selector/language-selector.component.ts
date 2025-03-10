@@ -16,6 +16,7 @@ export class LanguageSelectorComponent implements OnInit {
   }
 
   onLanguageChange(lang: string): void {
+    console.log('change lang', lang);
       this.i18nService.changeLanguage(lang);
       this.selectedLanguage = lang;
   }

@@ -47,7 +47,7 @@ export class BtnGroupComponent implements OnChanges, AfterViewInit, OnInit {
   // on walkthru navigate next focus nextElement/btn 
   this.walkService.onTutoNavigation().subscribe((btnId)=>{
     if(btnId){
-      console.log("BtnClick:",btnId, this.btnService.getScreenContainerId(btnId));
+      // console.log("BtnClick:",btnId, this.btnService.getScreenContainerId(btnId));
       const parentId = this.btnService.getScreenContainerId(btnId)
       this.walkService.scrollIntoView(parentId)
       

@@ -17,7 +17,7 @@
     </ng-container>
 </div>
 
-<div class="swiper-nav">
+<div class="swiper-nav" (click)="navigateWalkThru()">
     <div class="nav-container">
         <ul>
             <li [ngClass]="{ 'active': panel === activeScreenId }" #navigations *ngFor="let panel of panels" [id]="panel">

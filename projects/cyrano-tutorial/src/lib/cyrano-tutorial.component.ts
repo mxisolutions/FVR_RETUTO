@@ -44,6 +44,7 @@ export class CyranoTutorialComponent implements OnInit, OnChanges, AfterViewInit
   steps: CyranoTutorial[] = [];
   panels:string[] = [];
   activeScreenId:string = ""; 
+  activeId: string = "";
 
   constructor( 
       private tutoService: CyranoTutorialService
@@ -62,7 +63,7 @@ export class CyranoTutorialComponent implements OnInit, OnChanges, AfterViewInit
       .subscribe((comt: WalkthroughNavigate) => {
         console.log(`${comt.previous.id} is navigating`);
         const current = this.tutoService.getById(comt.next.id);
-
+        this.activeId = comt.next.id;
         if(current){
           this.tutoService.notifyTutoNavigation(current)
         }
@@ -138,7 +139,7 @@ export class CyranoTutorialComponent implements OnInit, OnChanges, AfterViewInit
             step.contentVertAlign === "center" ? 'center' : step.contentVertAlign === "top" ? 'top':
             step.contentVertAlign === "bottom" ? 'bottom' : 'below';
 
-            current.showArrow = step.showArrow ? step.showArrow : true;
+            current.showArrow = step.showArrow ? step.showArrow : false;
             current.closeAnywhere = step.closeAnywhere ? step.closeAnywhere : false;
             current.finishButton = step.showFinishBtn ? step.showFinishBtn : false;
             current.contentSpacing = 0;
@@ -172,10 +173,21 @@ export class CyranoTutorialComponent implements OnInit, OnChanges, AfterViewInit
         console.log("this.steps:",this.steps);
         if(this.steps.length > 0){
           this.open(this.steps[0].id);
+          this.activeId = this.steps[0].id;
           this.tutoService.activateSwipeNav(this.steps[0].id);
         }
       }
     },100)    
+  }
+
+  navigateWalkThru(){    
+    const current = this.tutoService.getById(this.activeId);
+
+    if(current && current.nextStep.id){
+      console.log("click on container", this.tutoService.getScreenById(current.nextStep.id));
+      this.tutoService.scrollIntoView(this.tutoService.getScreenById(current.nextStep.id));
+      WalkthroughComponent.walkthroughNext();  
+    }
   }
 
   /**

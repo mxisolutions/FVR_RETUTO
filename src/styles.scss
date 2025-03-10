@@ -14,6 +14,7 @@ body {
 
 div, p, span, input, textarea {
     box-sizing: border-box;
+    font-family: 'Gilroy Regular';
 }
 
 body::-webkit-scrollbar,
@@ -74,7 +75,14 @@ walkthrough-container {
         min-width: unset !important;
         padding-top: 44px !important;
         padding-bottom: 32px !important;
-        margin-left: 8em !important;
+        // margin-left: 8em !important;
+    }
+
+    main {
+        // z-index: 10;
+        // position: absolute;
+        // width: 100%;
+        // height: 100vh;
     }
 }
 
@@ -82,7 +90,8 @@ walkthrough-container {
     text-align: center;
 }
 
-.wkt-navigate .wkt-finish-link {
+.wkt-navigate .wkt-finish-link,
+.wkt-navigate .wkt-next-link {
     display: none;
 }
 
@@ -109,6 +118,11 @@ walkthrough-container {
     .screen-container {
         width: 100% !important;
         height: 100% !important;
+    }
+
+    walkthrough-container {
+        height: 100vh !important;
+        z-index: 0 !important;
     }
 
     .wkt-content-block {
