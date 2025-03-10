@@ -10,6 +10,7 @@ import {
   QueryList,
   OnChanges,
   SimpleChanges,
+  HostListener
 } from '@angular/core';
 
 import { Subscription } from 'rxjs';
@@ -49,9 +50,17 @@ export class CyranoTutorialComponent implements OnInit, OnChanges, AfterViewInit
   ){}
 
   ngOnInit(): void {      
+
+    this.subs.add(
+      WalkthroughComponent.onOpen.subscribe((comp: WalkthroughComponent)=>{
+        console.log(`${comp.id} is open`);
+      })
+    );
+
     this.subs.add(
       WalkthroughComponent.onNavigate
       .subscribe((comt: WalkthroughNavigate) => {
+        console.log(`${comt.previous.id} is navigating`);
         const current = this.tutoService.getById(comt.next.id);
 
         if(current){
@@ -86,6 +95,12 @@ export class CyranoTutorialComponent implements OnInit, OnChanges, AfterViewInit
         this.panels = this.tutoService.getScreens();
         console.log("this.panels ->",this.panels);
       }
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event) {
+      console.log("screen on resize...");
+      this.construct_walk();
   }
 
   ngAfterViewInit(): void {
@@ -130,6 +145,12 @@ export class CyranoTutorialComponent implements OnInit, OnChanges, AfterViewInit
             current.verticalContentSpacing= 50;
             current.focusBackdrop = true;
             current.focusGlow = true;
+            // current.rootElement = ".main-page";
+            current.focusElementSelector = window.innerWidth < 551 ?
+              step.focusElementId :
+              ('#' + this.tutoService.getScreenById(step.id) + step.focusElementId.replace('#','')).toLowerCase();
+            
+            console.log(window.innerWidth, "|| current.focusElementSelector:",current.focusElementSelector);
             // current.focusHighlightAnimation = true
           }
           

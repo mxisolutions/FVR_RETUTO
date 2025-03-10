@@ -25,6 +25,7 @@
         display: none;
     }
 
+    
     .screen-panel {
         display: flex;
         width: fit-content;
@@ -68,6 +69,27 @@
         opacity: 1;
     }
 }
+
+@media only screen and (min-width:551px){
+    .screen-panel.mobile {
+        display: none !important;
+    }
+
+    .screen-panel.desktop {
+        display: flex;
+    }
+}
+
+@media only screen and (max-width:550px){
+    .screen-panel.mobile {
+        display: flex;
+    }
+
+    .screen-panel.desktop {
+        display: none !important;
+    }
+}
+
 
 .vertbtn-container {
     display: flex;

@@ -75,7 +75,7 @@ walkthrough-container {
         padding-top: 44px !important;
         padding-bottom: 32px !important;
         margin-left: 8em !important;
-}
+    }
 }
 
 .wkt-content {
@@ -111,6 +111,13 @@ walkthrough-container {
         height: 100% !important;
     }
 
-
+    .wkt-content-block {
+        max-width: 250px;
+        // top: 80px !important;
+        // min-width: unset !important;
+        padding-top: 44px !important;
+        padding-bottom: 32px !important;
+        // margin-left: 8em !important;
+    }
     
 }
