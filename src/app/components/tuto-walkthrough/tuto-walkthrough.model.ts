@@ -1,5 +1,6 @@
 export class TutoWalkThrough {
     id: string;
+    label:string;
     prevStepId: string;
     nextStepId: string;
     focusElementId: string;
@@ -12,6 +13,7 @@ export class TutoWalkThrough {
     
     constructor(
         id: string = '',
+        label:string = '',
         prevStepId: string = '',
         nextStepId: string = '',
         focusElementId: string = '',
@@ -20,6 +22,7 @@ export class TutoWalkThrough {
         showFinishBtn:boolean = false,
     ){
         this.id = id;
+        this.label = label;
         this.prevStepId = prevStepId;
         this.nextStepId = nextStepId;
         this.focusElementId = focusElementId;

@@ -38,7 +38,6 @@ export class TutoWalkthroughComponent implements OnInit, AfterViewInit, OnDestro
     @ViewChild('tutorWrapper') tutorWrapper!: ElementRef<HTMLDivElement>;
 
     steps: TutoWalkThrough[] = [];
-    nextStepMap = new Map<string, WalkthroughComponent>();
 
     @ViewChildren(WalkthroughComponent) walkthroughComponents!: QueryList<WalkthroughComponent>;
 
@@ -146,6 +145,7 @@ export class TutoWalkthroughComponent implements OnInit, AfterViewInit, OnDestro
    */
   openStep(stepId: string): void {
     const targetWalkthrough = this.walkthroughComponents.find(wt => wt.id === stepId);
+    
     if (targetWalkthrough) {
         targetWalkthrough.open();
     } else {

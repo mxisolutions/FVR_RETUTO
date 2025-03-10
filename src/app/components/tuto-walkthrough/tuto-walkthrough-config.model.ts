@@ -1,5 +1,5 @@
 import { TutoWalkThrough } from "./tuto-walkthrough.model";
 
 export interface TutoWalkThroughConfig {
-    walkthroughs: TutoWalkThrough[];
+    [key:string]: TutoWalkThrough[];
 }

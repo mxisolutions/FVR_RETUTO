@@ -1,6 +1,7 @@
-<div (click)="buttonClicked(btnSetting.action)">
+<div class="custom-btn" (click)="buttonClicked(btnSetting.action)">
     <lib-icon-btn [id]="(screenId + btnSetting.id).toLowerCase()">
         <img [src]="btnSetting.icon" />
      </lib-icon-btn>
+     <span>{{ 'app.button.' + btnSetting.label | translate }}</span>
 </div>
 

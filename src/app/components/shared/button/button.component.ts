@@ -9,7 +9,9 @@ import {
 
 import { Button } from './button.model';
 import { TutoService } from '../../../services/tuto.service';
+import { CyranoTutorialService } from 'cyranoTutorial';
 import { BtnGroupService } from '../../../services/btn.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-button',
@@ -21,12 +23,14 @@ export class ButtonComponent implements OnInit, OnChanges, AfterViewInit {
   @Input() screenId:string = '';
 
   buttonActions: { [key:string] : () => void } = {
-    "openHelp": () => this.openTutorial()
+    "openHelp": () => this.openTutorial(),
+    "exitTutorial": () => this.exitTutorial()
   }
 
   constructor(
+    private router: Router,
     private btnService: BtnGroupService,
-    private walkService: TutoService
+    private walkService: CyranoTutorialService
   ){
     this.btnSetting = new Button("","","","",false)
   }
@@ -52,6 +56,11 @@ export class ButtonComponent implements OnInit, OnChanges, AfterViewInit {
   }
 
   openTutorial():void {
+    console.log("open tutorial...");
     this.walkService.startTuto('walk1');
+  }
+
+  exitTutorial():void {
+    this.router.navigate(['/']);
   }
 }

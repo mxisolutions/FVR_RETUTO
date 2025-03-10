@@ -14,6 +14,9 @@ import { ButtonGroup } from './btn-group.model';
 import { BtnGroupConfig } from './btn-group-config.model';
 import { Button } from '../button/button.model';
 import { TutoService } from '../../../services/tuto.service';
+import { CyranoTutorialService } from 'cyranoTutorial';
+
+// import { CyranoTutorialService } from '../../../../../projects/cyrano-tutorial/src/public-api';
 
 @Component({
   selector: 'app-btn-group',
@@ -37,8 +40,9 @@ export class BtnGroupComponent implements OnChanges, AfterViewInit, OnInit {
  isTypeVertical = false;
 
  constructor(
-  private btnService: BtnGroupService,
-  private walkService: TutoService){
+    private btnService: BtnGroupService,
+    private walkService: CyranoTutorialService
+  ){
 
   // on walkthru navigate next focus nextElement/btn 
   this.walkService.onTutoNavigation().subscribe((btnId)=>{
@@ -49,6 +53,7 @@ export class BtnGroupComponent implements OnChanges, AfterViewInit, OnInit {
       
     }
   });
+
 
  }
 

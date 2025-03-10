@@ -9,6 +9,15 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
+    "paths": {
+      "cyranoTutorial": [
+        "./dist/cyrano-tutorial",
+        "./dist/cyrano-tutorial"
+      ],
+      "ngTutorial": [
+        "./dist/ng-tutorial"
+      ]
+    },
     "esModuleInterop": true,
     "sourceMap": true,
     "declaration": false,

@@ -8,7 +8,7 @@
                     "id": "forfeit",
                     "icon": "/assets/imgs/forfeit_btn.png",
                     "label": "Forfeit",
-                    "action": "forfeitTutorial",
+                    "action": "exitTutorial",
                     "visible": true
                 },
                 {

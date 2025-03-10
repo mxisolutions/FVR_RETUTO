@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -10,6 +11,8 @@ import { ButtonsModule } from 'nextsapien-component-lib';
 import { BtnGroupComponent } from './btn-group/btn-group.component';
 import { ButtonComponent } from './button/button.component';
 import { TutoWalkthroughModule } from '../tuto-walkthrough/tuto-walkthrough.module';
+import { LanguageSelectorComponent } from './language-selector/language-selector.component';
+import { CyranoTutorialModule } from 'cyranoTutorial';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -20,13 +23,16 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [
     BtnGroupComponent,
     ButtonComponent,
+    LanguageSelectorComponent,
   ],
   imports: [
     CommonModule,
     RouterModule,
+    FormsModule,
     WalkthroughModule,
     HttpClientModule,
     ButtonsModule,
+    CyranoTutorialModule,
     TranslateModule.forRoot({
       defaultLanguage: 'en',
       useDefaultLang: true,
@@ -43,8 +49,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     WalkthroughModule,
     RouterModule,
     ButtonsModule,
+    CyranoTutorialModule,
     BtnGroupComponent,
-    ButtonComponent
+    ButtonComponent,
+    LanguageSelectorComponent
   ]
 })
 export class SharedModule { }

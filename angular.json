@@ -110,6 +110,39 @@
           }
         }
       }
+    },
+    "cyranoTutorial": {
+      "projectType": "library",
+      "root": "projects/cyrano-tutorial",
+      "sourceRoot": "projects/cyrano-tutorial/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/cyrano-tutorial/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/cyrano-tutorial/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/cyrano-tutorial/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/cyrano-tutorial/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
     }
   },
   "cli": {

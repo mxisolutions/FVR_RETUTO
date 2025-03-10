@@ -8,6 +8,8 @@
 
 # Node
 /node_modules
+
+projects/*/node_modules
 npm-debug.log
 yarn-error.log
 
@@ -19,6 +21,8 @@ yarn-error.log
 *.launch
 .settings/
 *.sublime-workspace
+
+
 
 # Visual Studio Code
 .vscode/*

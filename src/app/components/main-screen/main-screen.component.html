@@ -1,7 +1,11 @@
 <div class="page main-page">
     <div class="content">
+        <div class="langSelect-Container">
+            <app-language-selector></app-language-selector>
+        </div>
+
         <div #allScreenView class="screen-panel">
-            <div class="screen-container" *ngFor="let panel of panels" [id]="('screen-' + panel).toLowerCase()">
+            <div class="screen-container" *ngFor="let panel of panels" [id]="panel">
                 <div class="btn-container">
                     <!-- to be made into a component -->
                      <div *ngFor="let btngrp of buttonGroup">
@@ -17,15 +21,16 @@
             </div>
         </div>
 
-        <app-tuto-walkthrough></app-tuto-walkthrough>
-        
-        <div class="nav-container">
+        <!-- <app-tuto-walkthrough></app-tuto-walkthrough> -->
+        <lib-cyranoTutorial [data]="tutoData"></lib-cyranoTutorial>
+
+        <!-- <div class="nav-container">
             <ul>
                 <li *ngFor="let panel of panels">
                     {{ panel }}
                 </li>
             </ul>
-        </div>
+        </div> -->
         
     </div>
     

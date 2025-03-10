@@ -30,6 +30,7 @@ import { WalkthroughComponent } from 'angular-walkthrough';
 
   loadWalkthrough(){
     this.getWalkhroughData().subscribe((data:TutoWalkThroughConfig) => {
+      console.log(data);
       this.walkConfigSubject.next(data);
       if(data["walkthroughs"]){
         this.walkConfig = data["walkthroughs"].slice();
@@ -101,7 +102,7 @@ import { WalkthroughComponent } from 'angular-walkthrough';
       if(parentEl){
         parentEl.scrollIntoView({
           behavior: 'smooth',
-          block: 'nearest',
+          block: 'center',
           inline: 'center'
         });
       }
